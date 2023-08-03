@@ -30,3 +30,4 @@ print "digite sua idade: "
 idade = gets.chomp
 
 print "Nome do usuário: #{name}, idade: #{idade}"
+print "Nome do usuário: #{name}, idade: #{idade}"
