@@ -17,4 +17,4 @@ print "Digite o segundo número: "
 number2 = gets.chomp.to_f
 
 puts number2*number1
-puts number1 ** number2
+puts number1 ** numbergit
