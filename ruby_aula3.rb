@@ -10,7 +10,7 @@ puts clientes_agosto[:cl1]
 
 loop_counter = 0
 while loop_counter < 3
-  puts "Digite a seguradora para saber seus clientes: "
+  print "Digite a seguradora para saber seus clientes: "
   seg_cliente = gets.chomp.downcase
 
   if seguradoras.include?(seg_cliente) #Procurar se a entrada corresponde ao dado da array
@@ -19,7 +19,7 @@ while loop_counter < 3
     elsif seg_cliente == seguradoras[1]
       puts "Os clientes deste mês da Azul são: #{clientes_agosto[:cl3]}, #{clientes_agosto[:cl4]}"
     elsif seg_cliente == seguradoras[2]
-      puts "Os clientes deste mês da Azul são: #{clientes_agosto[:cl5]}"
+      puts "Os clientes deste mês da Allianz são: #{clientes_agosto[:cl5]}"
     elsif seg_cliente == seguradoras[3]
       puts "Não há clientes cadastrados neste seguradora"
     end
@@ -32,4 +32,23 @@ while loop_counter < 3
 
   end
 
+end
+
+loop do
+
+  print "Informe o nível do plano de cobertura que foi contratada 1-3: "
+  cobertura = gets.chomp.to_i
+  case cobertura
+  when 1
+    puts "Seu pacote cobre 50 mil para terceiros e carro reseva 7 dias"
+  when 2
+    puts "Seu pacote cobre 100 mil para terceiros e carro reserva 15 dias"
+  when 3
+    puts "Seu pacote cobre 150 mil para terceiros e carro reserva 30 dias"
+  else
+    puts "Escolha um nível de 1 a 3"
+    next
+
+  end
+  break
 end
