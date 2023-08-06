@@ -39,7 +39,7 @@ loop do
   print "Informe o nível do plano de cobertura que foi contratada 1-3: "
   cobertura = gets.chomp.to_i
   case cobertura
-  when 1
+  when 1 #É possível também fazer um intervalo de números ex: 1..3
     puts "Seu pacote cobre 50 mil para terceiros e carro reseva 7 dias"
   when 2
     puts "Seu pacote cobre 100 mil para terceiros e carro reserva 15 dias"
@@ -47,7 +47,7 @@ loop do
     puts "Seu pacote cobre 150 mil para terceiros e carro reserva 30 dias"
   else
     puts "Escolha um nível de 1 a 3"
-    next
+    next  #vai para a próxima interação do loop com artifício para voltar a primeira linha do loop
 
   end
   break
