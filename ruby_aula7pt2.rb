@@ -2,14 +2,15 @@
 
 #Variáveis tipo classe
 
-class ClassType
-  def classT    #ACESSADA APENAS CHAMANDO O MÉTODO DA FUNÇÃO
+  def classt    #ACESSADA APENAS CHAMANDO O MÉTODO DA FUNÇÃO
     val = 2
+    puts val
   end
 
-end
+classt #chama a variável e imprime
+# puts val -> error
 
-#VARIAVEIS TIPO GLOBAL
+#VARIAVEIS TIPO GLOBAL  ->> '$' como prefixo
 
 class Bar
   def foo
@@ -39,3 +40,36 @@ puts $global
 baz.qux
 puts $global
 
+puts
+#VARIAVEIS DE CLASSE -> prefixo '@@'
+
+class User
+  @@user_count = 0
+  def add(name)
+    puts "User name #{name}, adicionado! "
+    @@user_count += 1
+    puts @@user_count
+  end
+end
+
+first_user = User.new
+first_user.add('André')
+
+second_user = User.new
+second_user.add('Beto')
+
+
+#VARIAVEIS DE INSTÂNCIA
+
+class Livros
+  attr_accessor :nome, :genero, :sinopse
+end
+
+livro_pisico = Livros.new
+livro_pisico.nome = 'Nome: Os profundos mistérios da mente'
+livro_pisico.genero = 'Gênero: Mentalidade, ciência-psicolígica, física quântica'
+livro_pisico.sinopse = 'Sinopse: Conheça a ciência da subconsciência humana através do consciente e muda sua vida'
+
+puts livro_pisico.nome
+puts livro_pisico.genero
+puts livro_pisico.sinopse
