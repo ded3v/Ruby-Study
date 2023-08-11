@@ -73,3 +73,25 @@ livro_pisico.sinopse = 'Sinopse: Conheça a ciência da subconsciência humana a
 puts livro_pisico.nome
 puts livro_pisico.genero
 puts livro_pisico.sinopse
+
+
+puts
+#CONSTRUTOR
+
+class Musica
+
+  def initialize(song_name, tone)
+    @song_name = song_name
+    @tone = tone
+  end
+
+  def check
+    puts "Música e seu tom:"
+    puts "Música: #{@song_name}"
+    puts "Tom: #{@tone}"
+
+  end
+end
+
+music = Musica.new('The Bards Song', 'A')
+music.check
