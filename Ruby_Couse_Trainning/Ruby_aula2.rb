@@ -34,4 +34,4 @@ peso = gets.chomp.to_f
 print "Digite sua altura: "
 altura = gets.chomp.to_f
 print "Nome do usuário: #{name}, idade: #{idade}"
-puts "Seu IMC é:#{((peso/(altura**2))).ceil(2)}"
+puts ", Seu IMC é:#{((peso/(altura**2))).ceil(2)}"
