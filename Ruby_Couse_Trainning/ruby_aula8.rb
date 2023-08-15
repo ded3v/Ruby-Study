@@ -26,7 +26,7 @@ foo { puts "Exec the block"}
 foo {puts 2*3}
 
 def foo
-  if block_given?
+  if block_given? #SE o bloco foi dado ele executa
     # Call the block
     yield
   else
@@ -36,3 +36,27 @@ end
 
 foo
 foo { puts "Com parâmetro do tipo bloco"}
+
+
+def foo(name, &block)
+  @name = name
+  block.call
+end
+
+foo('Andre') { puts "Hellow #{@name}" }
+
+
+def foo(numbers, &block)
+  if block_given?
+    numbers.each do |key, value|
+      block.call(key, value)
+    end
+  end
+end
+
+numbers = { 2 => 2, 3 => 3, 4 => 4 }
+
+
+foo(numbers) do |key, value|
+  puts "#{key} * #{value} = #{key * value}"
+  puts "#{key} + #{value} = #{key + value}"
