@@ -25,6 +25,7 @@ puts componentes.include?('RTX3040') #Este elemento compoe o array?
 
 #HASH
 
+
 compp_price = {case: '600', memoria: '300', ssd: '400', RTX: '2400', ryzen5: '800'}
 compp_price[:monitor] = "1000" #adiciona ao hash uma chave e seu valor
 
@@ -38,4 +39,7 @@ puts compp_price.values #imprime apenas os valores das chaves
 puts compp_price[:memoria] #imprime o valor da chave selecionada
 puts compp_price.size #quantidade de chaves da hash
 
-
+puts '----'
+puts "Testando lambda"
+second_lambda = -> (compp_price){ compp_price.each {|key, value| puts key, value} }
+second_lambda.call.(compp_price)
