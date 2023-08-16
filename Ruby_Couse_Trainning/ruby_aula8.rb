@@ -74,9 +74,15 @@ def blocks_variable2(numbers, &block)
 end
 
 numbers = { 2 => 2, 3 => 3, 4 => 4 } #outra forma de representar a hash seria { 2: 2, 3: 3, 4: 4 }
-
+other_numbers = { 20=> 1, 40=> 3, 60=> 5 }
 
 blocks_variable2(numbers) do |key, value|
   puts "#{key} * #{value} = #{key * value}"
   puts "#{key} + #{value} = #{key + value}"
-  end
+end
+
+blocks_variable2(other_numbers) do |key, value|
+  puts "#{key} reais equivale a #{value} pontos"
+
+end
+
