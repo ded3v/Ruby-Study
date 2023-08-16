@@ -1,20 +1,36 @@
 #BLOCK - Função anônima
 
-sum = 0
-numbers = [5, 10, 5]
-numbers.each {|number| sum += number }
-puts sum
+#SOMA DE VALORES DE UMA ARRAY INPUTADA PELO USUÁRIO
+puts "Insira o valor: (Digite 'fim' se quiser sair)"
+budget = []
 
-
-foo = {2 => 3, 4 => 5}
-
-foo.each do |key, value|
-  puts "key = #{key}"
-  puts "value = #{value}"
-  puts "key * value = #{key * value}"
-  puts '---'
+loop do    #Insere os valores ao array até o usuário parar
+  input = gets.chomp
+  break if input.downcase == "fim"
+  budget.push(input.to_i)
 end
 
+puts "Valores inseridos: [#{budget.join(', ')}]" #
+
+sum = 0
+budget.each {|value| sum += value}  #Criado um bloco onde os valores vão ser somados da array
+puts "O total do orçamento foi: #{sum}"
+
+
+#SOMA DE VALORES DE UMA HASH
+calories = {'hamburguer' => 295, 'Fresh Fries' => 312}
+total_calories= 0
+puts '---'
+
+calories.each do |key, value|
+  puts "food = #{key}"
+  puts "calories = #{value}"
+  total_calories += value
+  puts '---'
+end
+puts "Total de calorias #{total_calories}"
+
+puts '---'
 
 def foo
   # Call the block
@@ -25,6 +41,7 @@ end
 foo { puts "Exec the block"}
 foo {puts 2*3}
 
+puts '---'
 def foo
   if block_given? #SE o bloco foi dado ele executa
     # Call the block
@@ -34,19 +51,19 @@ def foo
   end
 end
 
-foo
-foo { puts "Com parâmetro do tipo bloco"}
+foo #Executou o else pois não há bloco aqui
+foo { puts "Com parâmetro do tipo bloco"} #há um bloco então entrou no IF
 
 
-def foo(name, &block)
+def blocks_variable(name, &block)
   @name = name
   block.call
 end
 
-foo('Andre') { puts "Hellow #{@name}" }
+blocks_variable('Andre') { puts "Hellow #{@name}" }
 
 
-def foo(numbers, &block)
+def blocks_variable2(numbers, &block)
   if block_given?
     numbers.each do |key, value|
       block.call(key, value)
@@ -57,6 +74,7 @@ end
 numbers = { 2 => 2, 3 => 3, 4 => 4 }
 
 
-foo(numbers) do |key, value|
+blocks_variable2(numbers) do |key, value|
   puts "#{key} * #{value} = #{key * value}"
   puts "#{key} + #{value} = #{key + value}"
+  end
