@@ -55,6 +55,7 @@ foo #Executou o else pois não há bloco aqui
 foo { puts "Com parâmetro do tipo bloco"} #há um bloco então entrou no IF
 
 
+#
 def blocks_variable(name, &block)
   @name = name
   block.call
@@ -63,6 +64,7 @@ end
 blocks_variable('Andre') { puts "Hellow #{@name}" }
 
 
+#Fazendo uma tabuada com blocos
 def blocks_variable2(numbers, &block)
   if block_given?
     numbers.each do |key, value|
@@ -71,7 +73,7 @@ def blocks_variable2(numbers, &block)
   end
 end
 
-numbers = { 2 => 2, 3 => 3, 4 => 4 }
+numbers = { 2 => 2, 3 => 3, 4 => 4 } #outra forma de representar a hash seria { 2: 2, 3: 3, 4: 4 }
 
 
 blocks_variable2(numbers) do |key, value|
