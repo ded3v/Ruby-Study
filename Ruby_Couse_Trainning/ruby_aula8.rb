@@ -124,7 +124,7 @@ puts"----"
 puts "Flexibilidade e Portabilidade: As lambdas são objetos que podem ser passados como argumentos para outras funções ou métodos."
 
 def apply_lambda(array, func)
-  array.map(&func)
+  array.map(&func) #o & subentende-se que entrará uma função de bloco como o lambda
 end
 
 double = lambda {|n| n*2}
@@ -135,3 +135,16 @@ result1 = apply_lambda(numbers, double)
 result2 = apply_lambda(numbers, half)
 puts result1
 puts result2
+
+puts "----"
+
+is_even = lambda {|n| n.even?} #Verifica se o número é par
+numb = [1, 3, 4, 5, 7, 10, 11]
+
+even_numb = numb.select(&is_even)
+puts even_numb
+puts"----"
+
+
+######### MODULES ######
+
