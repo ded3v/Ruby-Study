@@ -25,4 +25,3 @@ array.each_with_index do |number, index| #Estrutura with_index marca um elemento
   puts "Index #{index}: #{number}"
 end
 
-array.each_with_index do |number, index|

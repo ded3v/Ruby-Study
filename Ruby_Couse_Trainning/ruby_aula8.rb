@@ -118,3 +118,20 @@ first_lambda = lambda { puts "my first lambda"}
 second_lambda = lambda { puts "my second lambda"}
 
 foo(first_lambda, second_lambda)
+puts"----"
+#Se aprofundando no lambda
+
+puts "Flexibilidade e Portabilidade: As lambdas são objetos que podem ser passados como argumentos para outras funções ou métodos."
+
+def apply_lambda(array, func)
+  array.map(&func)
+end
+
+double = lambda {|n| n*2}
+half = lambda {|n|n/2.0}
+
+numbers = [1, 2, 3, 4, 5]
+result1 = apply_lambda(numbers, double)
+result2 = apply_lambda(numbers, half)
+puts result1
+puts result2
