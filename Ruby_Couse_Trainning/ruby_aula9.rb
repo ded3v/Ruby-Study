@@ -18,5 +18,20 @@ puts
 puts "Capture os emails do texto:"
 
 texts = "asdfg@exemp.com, ou tbm qwer@hot.com.br, ou trewq@cresca.com"
-emails = texts.scan(/\b[A-Za-z0-9._%+]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/)
+emails = texts.scan(/\b[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/)
 puts emails
+puts "----"
+
+puts "Verifique se os telefones estão nos formatos válidos: "
+
+def valid_phone_number?(number)
+  pattern = /^\d{2}-?\d{5}-?\d{4}$/
+  if pattern.match?(number)
+    puts "Número aceito: #{number}"
+  else
+    puts "Formato do número incorreto"
+  end
+end
+
+puts valid_phone_number?("81999999999")
+
