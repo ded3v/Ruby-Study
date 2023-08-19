@@ -15,10 +15,10 @@ puts emails
 
 puts
 
-puts "Capture os emails do texto:"
+puts "Capture os emails do texto: asdfg@exemp.com, ou tbm qwer@hot.com.br, ou trewq@cresca.com "
 
 texts = "asdfg@exemp.com, ou tbm qwer@hot.com.br, ou trewq@cresca.com"
-emails = texts.scan(/\b[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/)
+emails = texts.scan(/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/)
 puts emails
 puts "----"
 
@@ -33,5 +33,72 @@ def valid_phone_number?(number)
   end
 end
 
+
 puts valid_phone_number?("81999999999")
+
+puts "----"
+
+puts "Algoritmo para capturar telefone "
+def validate(msg)
+  patt = /\b?\(?\d{2}\)? ?\d ?\d{4}-?\d{4}\b/
+  if number = msg.match(patt)
+    puts "Número dentro do padrão"
+  else
+    puts "Padrão incorreto, digite novamente"
+  end
+  number
+end
+
+msg = "Olá, tudo bem? Meu whats app é (99) 7 43211234"
+puts validate(msg)
+
+puts "-----"
+
+puts "Extraia as datas da mensagem"
+
+def extract_text(text)
+  pattern = /\b\d{2}\/\d{2}\/\d{4}/
+  dates = text.scan(pattern)
+end
+
+text = "As datas comemorativas serão 10/12/2023 e 31/12/2023"
+puts extract_text(text)
+
+puts "Verificação de Password com os critérios:
+- Pelo menos 8 caracteres de comprimento.
+- Pelo menos uma letra minúscula.
+- Pelo menos uma letra maiúscula.
+- Pelo menos um dígito.
+- Pelo menos um caractere especial entre @$!%*?&."
+
+def strong_password?(password)
+  pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+  pattern.match?(password)
+end
+
+puts strong_password?("P@ssw0rd") # true
+puts strong_password?("12345678") # false
+
+puts "-----"
+####TIME
+
+time = Time.now
+puts time.strftime('%d/%m') #strftime formata a hora
+puts time.saturday?
+
+###method_missing
+class Play_Guitar
+  def method_missing(method_name)
+    puts "Método #{method_name} não encontrado ou não existe"
+  end
+
+  def Play
+    puts "Zieamm zumm pemmm"
+  end
+end
+
+playing = Play_Guitar.new
+playing.Play
+playing.strike
+puts"----"
 
