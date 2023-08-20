@@ -102,3 +102,24 @@ playing.Play
 playing.strike
 puts"----"
 
+puts "Em uma classe chamada Carro, crie um método público chamado get_km que recebe como parâmetro a seguinte informação “Um fusca de cor amarela viaja a 80km/h ”.
+O método get_km deve chamar um método privado com o nome de find_km. Este deve localizar e retornar o casamento de padrão 80km/h.
+No final, imprima este retorno. "
+class Car
+  def get_km(speed)
+    km = find_km(speed)
+    puts km
+  end
+
+  private
+  def find_km(speed)
+    pattern = /\d{2,}km\/h/
+    match_speed = speed.match(pattern)
+
+  end
+end
+
+speed = "Um fusca de cor amarela viaja a 80km/h"
+car = Car.new
+puts "Saída: "
+car.get_km(speed)
