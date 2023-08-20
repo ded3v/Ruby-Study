@@ -1,20 +1,17 @@
 require 'rest-client'
 require 'json'
+require 'fileutils'
 
 class Translator
-  GOOGLE_API_KEY = 'SEU_TOKEN_AQUI'
-
   def self.translate(text, source_lang, target_lang)
-    url = "https://translation.googleapis.com/language/translate/v2"
+    url = "https://api.mymemory.translated.net/get"
     params = {
-      key: GOOGLE_API_KEY,
-      q: text,
-      source: source_lang,
-      target: target_lang
+      'q' => text,
+      'langpair' => "#{source_lang}|#{target_lang}"
     }
 
     response = RestClient.get(url, params: params)
-    translation = JSON.parse(response.body)["data"]["translations"].first["translatedText"]
+    translation = JSON.parse(response.body)["responseData"]["translatedText"]
     translation
   end
 end
@@ -34,10 +31,16 @@ translated_text = Translator.translate(original_text, source_lang, target_lang)
 puts "Texto original: #{original_text}"
 puts "Texto traduzido: #{translated_text}"
 
-# Após a impressão do texto traduzido
-timestamp = Time.now.strftime('%Y-%m-%d_%H-%M')
-filename = "traducoes/#{timestamp}.txt"
+base_path = "/home/ded3v/Desktop/rubyL/Ruby-Study/Ruby_Couse_Trainning/Projeto_Final/Final_Project/traducoes"
 
+# Criar a pasta "traducoes" se ela não existir
+FileUtils.mkdir_p(base_path) unless File.directory?(base_path)
+
+# Obter a data e hora atual para o nome do arquivo
+timestamp = Time.now.strftime('%Y-%m-%d_%H-%M')
+filename = "#{base_path}/#{timestamp}.txt"
+
+# Salvar o resultado da tradução no arquivo
 File.open(filename, 'w') do |file|
   file.puts("Texto original: #{original_text}")
   file.puts("Texto traduzido: #{translated_text}")
