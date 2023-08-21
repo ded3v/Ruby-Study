@@ -31,7 +31,7 @@ else
   puts "Obesidade grau 3"
 end
 
-#Exercício 2: Verificador de Número Primo
+##########3Exercício 2: Verificador de Número Primo##################
 # Crie um programa que solicita ao usuário um número inteiro positivo e verifica se ele é um número primo ou não.
 # Um número primo é aquele que só é divisível por 1 e por ele mesmo.
 
@@ -50,15 +50,15 @@ for i in 2..num # o i percorre assumindo os valores de 2 ao num
   end
 end
 if k == 1
-  puts "numero primo"
-  puts i
+  puts "Número #{i} primo"
+
 else
-  puts "Número não é primo"
+  puts "Número #{i}  não é primo"
 end
 
 #método 2
 
-s_prime = true
+is_prime = true
 #Aqui o código fica mais enxuto, pois se leva em consideração calcular até o quadrado do número (pq após ele o quadro lógico se repete), diminuindo processamento
 for i in 2..Math.sqrt(num)
   if num % i == 0
@@ -68,8 +68,37 @@ for i in 2..Math.sqrt(num)
 end
 
 if is_prime && num > 1
-  puts "Número primo"
+  puts "Número #{num} primo"
 else
-  puts "Número não é primo"
+  puts "Número #{num} não é primo"
 end
 
+#Treino LOOPS ANINHADOS
+######TABULEIRO XADREZ######
+
+letter_board = %w[H G F E D C B A]
+number_board = %w[1 2 3 4 5 6 7 8]
+
+for i in 0..7 do
+  for j in 0..7
+    print letter_board[i] + number_board[j] + " "
+  end
+  puts
+end
+
+puts"-----"
+puts"-----"
+
+#MÉTODO 2
+
+letter_board = %w[H G F E D C B A]
+number_board = %w[1 2 3 4 5 6 7 8]
+
+for i in letter_board do
+  for j in number_board
+    print i + j + " "
+  end
+  puts
+end
+
+##
