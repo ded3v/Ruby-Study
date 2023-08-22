@@ -112,3 +112,33 @@ for a in 2..9 do
 end
 
 print fibo
+
+puts "--------"
+
+def binomial_coefficient(n, k)
+  return 1 if k == 0 || k == n
+  return binomial_coefficient(n - 1, k - 1) + binomial_coefficient(n - 1, k)
+end
+
+def pascal_triangle(rows)
+  triangle = []
+
+  (0...rows).each do |row|
+    current_row = []
+    (0..row).each do |col|
+      current_row << binomial_coefficient(row, col)
+    end
+    triangle << current_row
+  end
+
+  return triangle
+end
+
+def display_triangle(triangle)
+  triangle.each do |row|
+    puts row.join(' ')
+  end
+end
+
+pascal_triangle_10_rows = pascal_triangle(10)
+display_triangle(pascal_triangle_10_rows)
