@@ -101,4 +101,14 @@ for i in letter_board do
   puts
 end
 
-##
+puts"-----------"
+##SEQUENCIA FIBONNACI
+puts "Faça a sequencia de Fibonacci"
+fibo = [1, 1]  # Começamos com os dois primeiros termos da sequência
+
+for a in 2..9 do
+  next_term = fibo[a-1] + fibo[a-2]  # O próximo termo é a soma dos dois anteriores
+  fibo.push(next_term)
+end
+
+print fibo
