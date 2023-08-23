@@ -165,4 +165,16 @@ matrix.each do |row|
 end
 puts "--------"
 
+###Exercício Colecting Stars####
+
+size = 7
+
+(1..size).each do |row|
+  (size - row).times {print ' '}
+
+  (2 * row - 1).times {print '*'}
+  puts
+end
+
+puts"-----"
 
