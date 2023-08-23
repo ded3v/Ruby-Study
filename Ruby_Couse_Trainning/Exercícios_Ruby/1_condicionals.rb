@@ -197,3 +197,36 @@ end
 puts "Acertou! O número da sorte é #{random}"
 
 puts "-------"
+
+#Exercício da senha forte:
+#Desenvolva um programa que verifica a força de uma senha fornecida pelo usuário. Uma senha é considerada forte se atender a pelo menos três dos seguintes critérios:
+# Possui pelo menos 8 caracteres.
+# Contém letras maiúsculas e minúsculas.
+# Contém números.
+# Contém caracteres especiais, como !, @, #, $, etc.
+# O programa deve informar ao usuário se a senha é fraca ou forte, com base nos critérios acima.
+def senha_forte?(senha)
+  criterios_atendidos = 0
+
+  criterios_atendidos += 1 if senha.length >= 8
+  criterios_atendidos += 1 if senha.match?(/[a-z]/) && senha.match?(/[A-Z]/)
+  criterios_atendidos += 1 if senha.match?(/[0-9]/)
+  criterios_atendidos += 1 if senha.match?(/[!@#$%^&*()\-_=+[\]{};:'",.<>/?\\|]/)
+
+  return criterios_atendidos >= 3
+end
+
+loop do
+  puts "Digite uma senha:"
+  senha = gets.chomp
+
+  if senha_forte?(senha)
+    puts "Senha forte! 👍"
+    break
+  else
+    puts "Senha fraca! Tente novamente. 👎"
+  end
+end
+
+puts "------"
+
