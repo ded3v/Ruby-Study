@@ -115,6 +115,7 @@ print fibo
 
 puts "--------"
 
+###triangulo Pascoal####
 def binomial_coefficient(n, k)
   return 1 if k == 0 || k == n
   return binomial_coefficient(n - 1, k - 1) + binomial_coefficient(n - 1, k)
@@ -142,3 +143,26 @@ end
 
 pascal_triangle_10_rows = pascal_triangle(10)
 display_triangle(pascal_triangle_10_rows)
+
+puts "-------"
+##Exercício 4: Matriz de Multiplicação
+# Escreva um programa que gere uma matriz de multiplicação de 5x5.
+# Cada elemento da matriz deve ser o resultado da multiplicação do número da linha pelo número da coluna.
+
+rows = 5
+cols = 5
+
+matrix = Array.new(rows) {Array.new(cols)}
+
+(0...rows).each do |row|
+  (0...cols).each do |col|
+    matrix[row][col] = (row + 1) * (col + 1)
+  end
+end
+
+matrix.each do |row|
+  puts row.join(' ')
+end
+puts "--------"
+
+
