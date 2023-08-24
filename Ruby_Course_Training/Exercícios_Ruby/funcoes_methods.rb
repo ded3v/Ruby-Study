@@ -87,3 +87,16 @@ notas.each_with_index do |linha_notas, i|
 end
 
 puts "--------"
+
+#Exercício 4: Verificador de Palíndromo
+# Crie uma função chamada verificar_palindromo que recebe uma string como argumento e verifica se ela é um palíndromo (uma palavra que é lida da mesma forma de trás para frente,
+# ignorando espaços e diferenciação entre maiúsculas e minúsculas).
+# A função deve retornar true se a string for um palíndromo e false caso contrário.
+
+def check_palindrome(string)
+  string = string.downcase.gsub(" ", "")
+  string == string.reverse
+end
+
+puts check_palindrome('ovo')
+puts check_palindrome('palindrome')
