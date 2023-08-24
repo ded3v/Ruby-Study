@@ -1,0 +1,2 @@
+Texto original: hola hola, bueno dias
+Texto traduzido: hello hello, good morning

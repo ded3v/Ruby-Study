@@ -1,0 +1,2 @@
+Texto original: Hello my friends, this a translation app program!
+Texto traduzido: Olá meus amigos, este é um programa de app de tradução!
