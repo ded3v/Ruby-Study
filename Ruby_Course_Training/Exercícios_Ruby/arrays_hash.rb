@@ -136,4 +136,43 @@ products.each do |item, instrumento|
   puts "#{item}: #{instrumento.quant}"
 end
 
+puts "--------"
+
+#Exercício 5: Anagramas
+#
+# Desenvolva um programa que recebe uma lista de palavras como um array e identifica os pares de palavras que são anagramas entre si.
+# Dois palavras são anagramas se tiverem as mesmas letras, mas em ordem diferente. Por exemplo, "amor" e "roma" são anagramas. O programa deve exibir todos os pares de anagramas encontrados.
+# Lembre-se de incluir testes para seus programas e lidar com possíveis erros de entrada dos usuários.
+
+def anagrams?(word1, word2)
+  sorted_word1 = word1.downcase.chars.sort.join
+  sorted_word2 = word2.downcase.chars.sort.join
+  sorted_word1 == sorted_word2
+end
+
+def find_anagrams(words)
+  anagram_pairs = Hash.new { |hash, key| hash[key] = [] }
+
+  words.each_with_index do |word1, index1|
+    (index1 + 1...words.length).each do |index2|
+      word2 = words[index2]
+      if anagrams?(word1, word2)
+        anagram_pairs[word1] << word2
+      end
+    end
+  end
+
+  anagram_pairs
+end
+
+puts "Digite uma lista de palavras separadas por vírgula:"
+input = gets.chomp
+word_list = input.split(',')
+
+pairs = find_anagrams(word_list)
+
+puts "Pares de palavras anagramas:"
+pairs.each do |word, anagrams|
+  puts "#{word}: #{anagrams.join(', ')}"
+end
 
