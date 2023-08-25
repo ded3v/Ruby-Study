@@ -74,3 +74,66 @@ numbers = [1, 2, 3, 4, 5, 2, 3, 6]
 unique_numbers = find_unique_numbers(numbers)
 
 puts "Números únicos no array: #{unique_numbers}"
+
+puts "--------"
+
+#Exercício 4: Gerenciamento de Estoque:
+# Crie um sistema de gerenciamento de estoque. Você terá um hash que representa o estoque de produtos,
+# onde as chaves são os nomes dos produtos e os valores são as quantidades em estoque.
+# O programa deve permitir ao usuário adicionar ou remover itens do estoque e atualizar as quantidades.
+class Instrumento
+  attr_accessor :name, :quant
+
+  def initialize(name , quant)
+    @name = name
+    @quant = quant
+  end
+
+end
+
+products = {}
+stock = {violao: 2, guitarra: 3, bateria: 1}
+
+stock.each do |item, quant|
+  products[item] = Instrumento.new(item, quant)
+end
+
+puts "Estoque inicial:"
+products.each do |item, instrumento|
+  puts "#{item}: #{instrumento.quant}"
+end
+
+puts "\nAdicionar ou remover itens?"
+action = gets.chomp.downcase
+
+case action
+when "adicionar"
+  puts "Nome do instrumento:"
+  item_name = gets.chomp.to_sym
+  puts "Quantidade:"
+  item_quant = gets.chomp.to_i
+  if products.key?(item_name)
+    products[item_name].quant += item_quant
+  else
+    products[item_name] = Instrumento.new(item_name, item_quant)
+  end
+when "remover"
+  puts "Nome do instrumento:"
+  item_name = gets.chomp.to_sym
+  if products.key?(item_name)
+    puts "Quantidade:"
+    item_quant = gets.chomp.to_i
+    products[item_name].quant -= item_quant
+  else
+    puts "Instrumento não encontrado no estoque."
+  end
+else
+  puts "Ação Inválida"
+end
+
+puts "\nEstoque atualizado:"
+products.each do |item, instrumento|
+  puts "#{item}: #{instrumento.quant}"
+end
+
+
