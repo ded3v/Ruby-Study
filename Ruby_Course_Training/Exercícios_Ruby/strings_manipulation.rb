@@ -42,3 +42,38 @@ sentence = gets.chomp
 
 puts "Frase corrigida:"
 puts sentence_capitalize(sentence)
+
+puts "------"
+
+#Crie um programa que encontra o maior palíndromo em uma string fornecida pelo usuário.
+# Um palíndromo é uma palavra, frase ou sequência de caracteres que é igual quando lida de trás para frente.
+# O programa deve ser capaz de encontrar o palíndromo mais longo presente na string.
+
+def is_palindrome?(str)
+  str == str.reverse
+end
+
+def find_longest_palindrome(string)
+  longest_palindrome = ""
+
+  words = string.split
+  words.each do |word|
+    if is_palindrome?(word) && word.length > longest_palindrome.length
+      longest_palindrome = word
+    end
+  end
+
+  longest_palindrome
+end
+
+puts "Digite uma frase:"
+user_input = gets.chomp
+
+longest_palindrome = find_longest_palindrome(user_input)
+if longest_palindrome.empty?
+  puts "Nenhum palíndromo encontrado."
+else
+  puts "O maior palíndromo encontrado é: #{longest_palindrome}"
+end
+
+puts "------"
