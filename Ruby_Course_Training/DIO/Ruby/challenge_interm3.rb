@@ -1,23 +1,22 @@
-def sum_even_indices(list1, list2)
-  result = []
+def sum_even(list1, list2)
+  new_list = []
 
-  (0...list1.length).each do |i|
-    if i.even?  # Verifica se o índice é par
-      sum = list1[i] + list2[i]
-      result << sum
+  (0..list1.length).each do |i|
+    if i.even?
+      list_sum = list1[i] + list2[i]
+      new_list << list_sum
     end
   end
-
-  return result
+  return new_list
 end
 
-# Recebe as entradas do usuário e converte para arrays de inteiros
-input1 = gets.chomp.split(', ').map(&:to_i)
-input2 = gets.chomp.split(', ').map(&:to_i)
+puts "Digite duas listas ex: 2, 4, 5 ..."
+list1 = gets.chomp.split(', ').map(&:to_i)
+list2 = gets.chomp.split(', ').map(&:to_i)
 
-# Chama a função e imprime o resultado
-result = sum_even_indices(input1, input2)
-puts result.join(', ')  # Imprime a nova lista como string
+puts "Soma dos números pares é: "
+puts sum_even(list1, list2).join(', ')
+
 
 puts "----------"
 
