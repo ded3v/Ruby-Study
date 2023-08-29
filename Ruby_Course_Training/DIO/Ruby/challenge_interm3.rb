@@ -31,19 +31,28 @@ def calcular_preco_gas(preco, imposto_variavel, valor_imposto_variavel)
   return preco_total
 end
 
-# Recebe as entradas do usuário
-preco_gas = gets.chomp.to_f
-imposto_variavel = gets.chomp.to_i
-valor_imposto_variavel = gets.chomp.to_f
+def gas_calculation_price(gas_price, tax_change, tax_value)
+  fix_tax = gas_price * 0.10
+  final_price = gas_price + fix_tax
 
-# Chama a função para calcular o preço total
-preco_total = calcular_preco_gas(preco_gas, imposto_variavel, valor_imposto_variavel)
+  if tax_change == 1
+    final_price += final_price * (tax_value/100)
+  end
+end
 
-# Imprime a frase com o preço total
-if preco_total.to_i == preco_total
-  puts "O preço do gás nesse mês é de R$#{preco_total.to_i}"
+puts "Digite o preço do gás: "
+gas_price = gets.chomp.to_f
+puts "Terá imposto variáveis: 1 - sim, 2- não"
+have_tax = gets.chomp.to_i
+puts "Digite o valor do imposto variável"
+tax_value = gets.chomp.to_f
+
+gas_final_price = gas_calculation_price(gas_price, have_tax, tax_value)
+
+if gas_final_price.to_i == gas_final_price
+  puts "O preço do gás é: #{gas_final_price.to_i}"
 else
-  puts "O preço do gás nesse mês é de R$#{preco_total}"
+  puts "O preço do gás é:  #{gas_final_price}"
 end
 
 puts "------"
