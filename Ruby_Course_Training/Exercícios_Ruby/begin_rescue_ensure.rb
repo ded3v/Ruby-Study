@@ -18,3 +18,47 @@ rescue StandardError => e
 ensure
   puts "Fim do programa."
 end
+
+puts "------"
+
+#Desenvolva um programa que lê o conteúdo de um arquivo especificado pelo usuário.
+# Utilize begin, rescue e ensure para lidar com possíveis erros de abertura de arquivo e exiba uma mensagem adequada em caso de erro.
+
+begin
+  puts "Digite o nome do arquivo:"
+  filename = gets.chomp
+
+  file = File.open(filename, "r")
+
+  puts "Conteúdo do arquivo:"
+  puts file.read
+rescue Errno::ENOENT
+  puts "Erro: Arquivo não encontrado."
+rescue StandardError => e
+  puts "Ocorreu um erro: #{e.message}"
+ensure
+  file.close if file
+  puts "Fim do programa."
+end
+
+puts "-----"
+
+#Crie um programa que solicita ao usuário que insira um número.
+# Utilize a estrutura begin, rescue e ensure para garantir que o programa possa lidar com erros de conversão de tipo (por exemplo, se o usuário inserir uma string ao invés de um número)
+# e exiba uma mensagem apropriada.
+
+def verify_number
+  begin
+    puts "DIgite um número inteiro"
+    input = gets.chomp
+    number = Integer(input) #converte uma string em um número inteiro
+    puts "Você digitou o número #{number}"
+
+  rescue ArgumentError
+    puts "Erro de conversão: Valor não é um inteiro válido"
+  ensure
+    puts "Fim de Programa!"
+  end
+end
+
+verify_number
