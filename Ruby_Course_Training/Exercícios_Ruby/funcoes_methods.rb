@@ -100,3 +100,15 @@ end
 
 puts check_palindrome('ovo')
 puts check_palindrome('palindrome')
+
+puts "-----"
+
+##Exercício 2: Contagem de Letras
+def sum_letters(string)
+  string = string.gsub(/[^a-zA-Z]/, '')
+  string_sum = string.size
+end
+
+string = "Olá, estou mudando a minha vida"
+puts sum_letters(string)
+
