@@ -62,3 +62,35 @@ def verify_number
 end
 
 verify_number
+
+#Exercício 4: Acesso a Elementos de Array
+#
+# Desenvolva um programa que solicita ao usuário que insira um índice e um array.
+# Utilize begin, rescue e ensure para lidar com possíveis erros de acesso a elementos do array (como um índice fora dos limites do array)
+# e exiba uma mensagem adequada em caso de erro.
+
+def verify_array
+  begin
+    array = [1, 2]
+    puts "Escolha a opção de 1 - 2"
+    choose = gets.chomp.to_i
+    if array.include?(choose)
+      puts "Opção válida"
+      case choose
+      when 1
+        puts "Pacote simples"
+      when 2
+        puts "Pacote completo"
+      end
+    else
+      puts "Escolha inválida"
+    end
+  rescue ArgumentError => e
+    puts e.message
+
+  ensure
+    puts "FIM DE PROGRAMA!"
+  end
+end
+
+verify_array
