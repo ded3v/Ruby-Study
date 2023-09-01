@@ -46,3 +46,6 @@ teste4(numbers) do |key, value|
   puts "#{key} - #{value} = #{key-value}"
 end
 
+
+first_lambda = lambda{puts"this is my first lambda!"}  #O lambda armazena um block na variável para ser chamada
+first_lambda.call
