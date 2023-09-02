@@ -72,3 +72,14 @@ numbers = [1, 2, 3, 4]  #É possível reaproveitar o lambda fornecendo outros ar
 
 my_lambda.call(numbers)
 
+
+def foo(first_lambda, second_lambda) #É mais fácil passar como parametro o LAMBDA do que usar &Blocks
+  first_lambda.call
+  second_lambda.call
+end
+
+first_lambda = lambda { puts "my first lambda"}
+second_lambda = lambda { puts "my second lambda"}
+
+foo(first_lambda, second_lambda)
+
