@@ -48,4 +48,13 @@ end
 
 
 first_lambda = lambda{puts"this is my first lambda!"}  #O lambda armazena um block na variável para ser chamada
+second_lambda = -> {puts"this is my first lambda!"}  #Outra maneira de chamar o lambda (mas não é possível sempre chamar assim)
 first_lambda.call
+second_lambda.call
+
+lambda_parameters = -> (names) {names.each { |name| puts name} }
+list_names = ['André', 'Ana', 'Valdir', 'Alanna']
+lambda_parameters.call(list_names)
+
+
+
