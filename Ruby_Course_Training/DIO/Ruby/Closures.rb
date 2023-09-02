@@ -83,3 +83,16 @@ second_lambda = lambda { puts "my second lambda"}
 
 foo(first_lambda, second_lambda)
 
+
+hello_proc = Proc.new do
+  puts "Hello PRoc"
+end
+
+hello_proc.call
+
+hello_proc = proc do #forma mais simpples
+  puts "Hello PRoc 2"
+end
+
+hello_proc.call
+
