@@ -57,4 +57,18 @@ list_names = ['André', 'Ana', 'Valdir', 'Alanna']
 lambda_parameters.call(list_names)
 
 
+my_lambda = lambda do |numbers|
+  index = 0
+  puts 'Número atual + Próximo número'
+  numbers.each do |number|
+    return if numbers[index] == numbers.last
+    puts "(#{numbers[index]}) + (#{numbers[index + 1]})"
+    puts numbers[index] + numbers[index + 1]
+    index += 1
+  end
+end
+
+numbers = [1, 2, 3, 4]  #É possível reaproveitar o lambda fornecendo outros arrays para calcular
+
+my_lambda.call(numbers)
 
