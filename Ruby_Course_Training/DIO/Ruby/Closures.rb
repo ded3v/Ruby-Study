@@ -96,3 +96,57 @@ end
 
 hello_proc.call
 
+puts "-------"
+
+
+module Print_Decorated
+  def print text
+    decoration = '#' * 50
+    puts decoration
+    puts text
+    puts decoration
+  end
+end
+
+module Legs
+  include Print_Decorated
+
+  def frontal_kick
+    print 'frontal kick'
+  end
+
+  def side_kick
+    print 'Side kick'
+  end
+end
+
+module Arms
+  include Print_Decorated
+
+  def right_jab
+    print 'right jab'
+  end
+
+  def uppercut
+    print 'uppercut!'
+  end
+end
+
+class FighterX
+  include Arms
+  include Legs
+end
+
+class FighterY
+  include Legs
+end
+
+puts "Lutador X ataca!!"
+fighterx = FighterX.new
+fighterx.frontal_kick
+fighterx.right_jab
+
+puts "Lutador Y ataca!!!"
+fightery = FighterY.new
+fightery.side_kick
+fightery.frontal_kick
