@@ -135,18 +135,28 @@ end
 class FighterX
   include Arms
   include Legs
+
+  def method_missing(method)
+    puts "Ação #{method} não existente!"
+  end
 end
 
 class FighterY
   include Legs
+
+  def method_missing(method)
+    puts "Ação #{method} não existente!"
+  end
 end
 
 puts "Lutador X ataca!!"
 fighterx = FighterX.new
 fighterx.frontal_kick
 fighterx.right_jab
+fighterx.roundkick
 
 puts "Lutador Y ataca!!!"
 fightery = FighterY.new
 fightery.side_kick
 fightery.frontal_kick
+fightery.jab
