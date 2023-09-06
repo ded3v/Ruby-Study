@@ -1,12 +1,17 @@
 class Base
   def go_on
     print "Esteja motivado"
-    end
+  end
+
+  def morning_miracle
+    puts "Estou tentando acordar cedo"
+  end
 end
 
 class Motivation < Base
   def morning_miracle
-    print "wake up early 05:00"
+    puts "waked up early 05:00"
+    super
     end
 end
 
