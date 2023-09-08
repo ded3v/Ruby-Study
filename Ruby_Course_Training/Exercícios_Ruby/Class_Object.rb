@@ -72,3 +72,87 @@ conta.exibir_saldo  # Deve exibir "Saldo atual de João: R$1000"
 conta.depositar(500)  # Deve exibir "Depósito de R$500 realizado. Novo saldo: R$1500"
 conta.sacar(1200)  # Deve exibir "Saque de R$1200 realizado. Novo saldo: R$300"
 conta.sacar(1000)  # Deve exibir "Saldo insuficiente."
+
+puts "-----"
+#Exercício 5: Sistema de Biblioteca
+#
+# Crie um sistema de biblioteca com as classes Livro, Usuario e Biblioteca. A classe Livro deve ter atributos como título, autor e quantidade de exemplares disponíveis.
+# A classe Usuario deve ter atributos como nome e idade.
+# A classe Biblioteca deve permitir emprestar e devolver livros, atualizando a quantidade de exemplares disponíveis, e também exibir uma lista de livros disponíveis.
+
+class Livro
+  attr_accessor :titulo, :autor, :quantidade
+
+  def initialize(titulo, autor, quantidade)
+    @titulo = titulo
+    @autor = autor
+    @quantidade = quantidade
+  end
+end
+
+class Usuario
+  attr_accessor :nome, :idade
+
+  def initialize(nome, idade)
+    @nome = nome
+    @idade = idade
+  end
+end
+
+class Biblioteca
+  def initialize
+    @livros = []
+  end
+
+  def adicionar_livro(livro)
+    @livros << livro
+  end
+
+  def emprestar_livro(livro, usuario)
+    if @livros.include?(livro) && livro.quantidade > 0
+      livro.quantidade -= 1
+      puts "#{livro.titulo} emprestado para #{usuario.nome}."
+    else
+      puts "Desculpe, o livro não está disponível para empréstimo."
+    end
+  end
+
+  def devolver_livro(livro, usuario)
+    if @livros.include?(livro)
+      livro.quantidade += 1
+      puts "#{livro.titulo} devolvido por #{usuario.nome}."
+    else
+      puts "Este livro não pertence a esta biblioteca."
+    end
+  end
+
+  def listar_livros_disponiveis
+    puts "Livros disponíveis na biblioteca:"
+    @livros.each do |livro|
+      puts "#{livro.titulo} (#{livro.autor}) - #{livro.quantidade} exemplares disponíveis"
+    end
+  end
+end
+
+# Exemplo de uso:
+livro1 = Livro.new("Dom Casmurro", "Machado de Assis", 5)
+livro2 = Livro.new("1984", "George Orwell", 3)
+usuario1 = Usuario.new("João", 30)
+usuario2 = Usuario.new("Maria", 25)
+
+biblioteca = Biblioteca.new
+biblioteca.adicionar_livro(livro1)
+biblioteca.adicionar_livro(livro2)
+
+biblioteca.emprestar_livro(livro1, usuario1)  # Deve emprestar
+biblioteca.emprestar_livro(livro2, usuario2)  # Deve emprestar
+biblioteca.emprestar_livro(livro2, usuario1)  # Deve emprestar
+
+biblioteca.listar_livros_disponiveis  # Deve listar os livros disponíveis com as quantidades atualizadas
+
+biblioteca.devolver_livro(livro1, usuario1)  # Deve devolver
+biblioteca.devolver_livro(livro2, usuario2)  # Deve devolver
+
+biblioteca.listar_livros_disponiveis  # Deve listar os livros disponíveis com as quantidades atualizadas
+
+
