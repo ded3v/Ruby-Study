@@ -30,3 +30,45 @@ dog = Dog.new
 dog.name = "Ury"
 dog.race = "Rottweiler"
 dog.name_race
+
+puts "-----"
+
+#Exercício 4: Classe Conta Bancária
+#
+# Desenvolva uma classe chamada ContaBancaria que tenha os atributos titular, saldo e limite. Crie métodos para depositar, sacar e exibir o saldo da conta.
+# O método de saque deve verificar se o valor a ser sacado não ultrapassa o saldo disponível mais o limite.
+
+class ContaBancaria
+  attr_accessor :titular, :saldo, :limite
+
+  def initialize(titular, saldo_inicial, limite)
+    @titular = titular
+    @saldo = saldo_inicial
+    @limite = limite
+  end
+
+  def depositar(valor)
+    @saldo += valor
+    puts "Depósito de R$#{valor} realizado. Novo saldo: R$#{@saldo}"
+  end
+
+  def sacar(valor)
+    if valor <= @saldo + @limite
+      @saldo -= valor
+      puts "Saque de R$#{valor} realizado. Novo saldo: R$#{@saldo}"
+    else
+      puts "Saldo insuficiente."
+    end
+  end
+
+  def exibir_saldo
+    puts "Saldo atual de #{@titular}: R$#{@saldo}"
+  end
+end
+
+# Exemplo de uso:
+conta = ContaBancaria.new("João", 1000, 500)  # Titular, saldo inicial, limite
+conta.exibir_saldo  # Deve exibir "Saldo atual de João: R$1000"
+conta.depositar(500)  # Deve exibir "Depósito de R$500 realizado. Novo saldo: R$1500"
+conta.sacar(1200)  # Deve exibir "Saque de R$1200 realizado. Novo saldo: R$300"
+conta.sacar(1000)  # Deve exibir "Saldo insuficiente."
