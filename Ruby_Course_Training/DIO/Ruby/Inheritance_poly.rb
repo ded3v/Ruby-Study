@@ -28,4 +28,8 @@ class Motorcycle < Vehicle
   end
 end
 
-car = Car.new('Voyage', )
+car = Car.new('Wolskwagen', 'Voyage', '2011', '5 portas', 'Cinza' )
+puts "Marca: #{car.brand}, Modelo: #{car.model}, Ano: #{car.year}, Portas: #{car.door}, Cor: #{car.color}"
+
+moto = Motorcycle.new('Yamaha', 'XT 660', '2001', '1998', 'Preta' )
+puts "Marca: #{moto.brand}, Modelo: #{moto.model}, Ano: #{moto.year}, Cilindradas: #{moto.displacement}, Cor: #{moto.color}"
