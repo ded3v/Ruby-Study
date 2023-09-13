@@ -1,0 +1,23 @@
+Explicação sobre pastas:
+
+APP - model/view/controler se encontral aqui
+Bin - bundle e
+Config - config de ambientes, inicializadores
+db - banco da dados
+lib - bibliotecas da aplicação
+log - retorno de informações do que está sendo feito
+public - única pasta que fica disponível para o usuário final
+test - criar formas de testes para aplicação
+tmp - arquivos temporários
+vendor - arquivos de terceiros
+
+rails new mvc_test
+
+rails g scaffold User name email ##Cria arquivos de inserção User e Email no MVC
+rails db:create db:migrate  #Descreve o que vai ser criado/alterado no banco de dados, em relação aos campos e tabelas. Cria o banco de dados, e migrar o banco de dados (transformar em SQL)
+1 - detalhe importante - uma request só chega no controller se houver uma rota que leve (URL)
+  2 maneiras - 1:
+
+2 - dica importante - Máquinas não conversam de forma gráfica. Ao digitar uma URL e dar entender, há inevitavelmente uma request do tipo GET
+ REST (é um estilo arquitetônico aplicado para fornecer padrões entre sistemas de computador na web, facilitando a comunicação entre eles.)
+
