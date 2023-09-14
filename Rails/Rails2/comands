@@ -2,7 +2,7 @@ Explicação sobre pastas:
 
 APP - model/view/controler se encontral aqui
 Bin - bundle e
-Config - config de ambientes, inicializadores
+Config - config de ambientes, inicializadores, e deve ser configurado logo que se cria o projeto, Pois é nele que estará os parametros para o BD
 db - banco da dados
 lib - bibliotecas da aplicação
 log - retorno de informações do que está sendo feito
