@@ -3,7 +3,10 @@ Explicação sobre pastas:
 APP - model/view/controler se encontral aqui
 Bin - bundle e
 Config - config de ambientes, inicializadores, e deve ser configurado logo que se cria o projeto, Pois é nele que estará os parametros para o BD
+  -rails server -> entra automaticamente no modo app_development, se quiser alternar para production, text por ex, comando ex -> rails s -e production
 db - banco da dados
+  - PostgreSQL: sudo -i -u postgres (entra no seu usuário), psql (loga)
+
 lib - bibliotecas da aplicação
 log - retorno de informações do que está sendo feito
 public - única pasta que fica disponível para o usuário final
@@ -12,6 +15,8 @@ tmp - arquivos temporários
 vendor - arquivos de terceiros
 
 rails new mvc_test
+rails new "nome do app"="Nnome_do_bd" (especificar o banco de dados)
+
 
 rails g scaffold User name email ##Cria arquivos de inserção User e Email no MVC
 rails db:create db:migrate  #Descreve o que vai ser criado/alterado no banco de dados, em relação aos campos e tabelas. Cria o banco de dados, e migrar o banco de dados (transformar em SQL)
