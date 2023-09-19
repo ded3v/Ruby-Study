@@ -6,7 +6,7 @@ class CreateCustomers < ActiveRecord::Migration[7.0]
       t.date :birthday
       t.text :obs
 
-      t.timestamps
+      t.timestamps #cria na tabela o registro de criações e atualizações
     end
   end
 end
