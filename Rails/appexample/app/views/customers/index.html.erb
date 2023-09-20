@@ -2,7 +2,8 @@
 
 <h1>Customers</h1>
 <% a = "Clientes principais" %>
-Lista de <%= a %>
+<% b = "Clientes comuns" %>
+Lista de <%=" #{a} e #{b} "%>
 
 <div id="customers">
   <% @customers.each do |customer| %>
