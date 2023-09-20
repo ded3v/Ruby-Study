@@ -1,0 +1,15 @@
+MODEL:
+ApplicationRecord < ActiveRecord::Base - toma conta da perstistência no banco de dados, faz a comunicação do bancado de dados a uma classe
+    - no rails console é possível fazer a busca nos bancos dados com comandos como Customer.first, que acessa o "Primeiro cliente" no banco de dados e listar
+    isso é um trabalho do framework ActiveRecord
+    - Obs: quando chamamos todos os elementos exemplo Customer.all, ele lista como um vetor, ou seja, uma array neste formato [#<....., ...., ... >, #<..... ..., .... >]
+    mas quando um elemento apenas é chamado, esse elemento não vai ser um vetor.
+
+Formas de usar ActiveRecord:
+    -
+
+
+CONTROLER
+ApplicationController < ActionController::Base
+
+
