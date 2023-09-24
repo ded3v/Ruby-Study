@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
   resources :customers
 
   get 'inicio' => 'welcome#index'
