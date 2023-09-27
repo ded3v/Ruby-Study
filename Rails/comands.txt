@@ -45,3 +45,9 @@ Embedded Ruby - template que mistura ruby com texto (erb)
 
 
 obs:  uma request só chega no controller se houver uma rota que leve (URL)
+      Rest - criação. No ano 2000 só tinhamos dois verbos, get/post, e apesar de tudo poder ser feito com esses dois verbos, havia uma falta de semântica para
+      repreesntar bem o que se estava fazendo na internet. Deveria então ser criado o Put e o Delete.
+
+
+Explicando o Routes com resources :customers
+

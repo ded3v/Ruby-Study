@@ -12,4 +12,13 @@ Formas de usar ActiveRecord:
 CONTROLER
 ApplicationController < ActionController::Base
 
+class CustomersController < ApplicationController
+
+def action (reflete no view com o mesmo nome)
+    code
+
+
+
+
+
 
