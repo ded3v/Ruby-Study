@@ -42,3 +42,41 @@ cliente1.comprar("Produto A")
 
 produto1 = Produto.new("Produto B")
 produto1.adicionar_estoque(10)
+
+
+#Exercício 3: Módulo de Autenticação
+#
+# Crie um módulo chamado Autenticacao que tenha métodos para autenticar usuários, como verificar um nome de usuário e senha.
+# Em seguida, aplique esse módulo a uma classe Usuario para fornecer recursos de autenticação.
+
+module Autenticacao
+  def autenticar(usuario, senha)
+    # Aqui você pode implementar a lógica de autenticação.
+    # Este é um exemplo simples para fins de demonstração.
+    if usuario == "usuario" && senha == "senha"
+      puts "Autenticação bem-sucedida para o usuário: #{usuario}"
+      return true
+    else
+      puts "Falha na autenticação para o usuário: #{usuario}"
+      return false
+    end
+  end
+end
+
+class Usuario
+  include Autenticacao
+
+  def initialize(nome)
+    @nome = nome
+  end
+
+  def fazer_algo
+    # Alguma ação que requer autenticação
+    autenticar(@nome, "senha_secreta")
+    # Outras ações após a autenticação bem-sucedida
+  end
+end
+
+# Exemplo de uso
+usuario = Usuario.new("usuario")
+usuario.fazer_algo
