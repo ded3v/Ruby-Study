@@ -19,6 +19,6 @@ def action (reflete no view com o mesmo nome)
 
 
 
-
-
+Active Record:
+Responsável por estar migrando, tudo que está no banco de dados e utilizando através de objetos
 

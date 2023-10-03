@@ -51,3 +51,6 @@ obs:  uma request só chega no controller se houver uma rota que leve (URL)
 
 Explicando o Routes com resources :customers
 
+
+Active Record
+
