@@ -25,4 +25,14 @@ Responsável por estar migrando, tudo que está no banco de dados e utilizando a
 Comandos:
 
 Name.all // Name.all[1]=> Retorna todos os dados do banco de dados // Específico []
+Name.where(:id => 1) // Name.where(id: 1) => atribui o dado específico
+
+CRIANDO / PERSISTINDO DADOS
+
+Name.create(name: "fulano", email: "xxxx@yyy.com", birthday: "xx/yy/zz", obs: "hauhasuhauuhs"
+
+x = Name.new irá instanciar objetos e depois ser possível preencher os dados: x.name = "fulano" // assim como x.email, x.birthday, etc
+
+
+
 
