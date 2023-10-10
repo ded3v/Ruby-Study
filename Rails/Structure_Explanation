@@ -17,6 +17,12 @@ class CustomersController < ApplicationController
 def action (reflete no view com o mesmo nome)
     code
 
+Before_Action: No app/COntroller Ações que se realizam antes das ações abaixo ex: index, create.
+
+
+VIEW
+
+_sua_partial.html.erb: estrutram códigos compartilhados a serem aproveitados, como no exemplo ma view new/edit que compartilham _form.html.erb
 
 
 Active Record:
