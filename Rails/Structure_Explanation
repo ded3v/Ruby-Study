@@ -19,6 +19,36 @@ def action (reflete no view com o mesmo nome)
 
 Before_Action: No app/COntroller Ações que se realizam antes das ações abaixo ex: index, create.
 
+OBS SOBRE RELAÇÃO _form.html.erb com CONTROLLER:
+
+Model (customer): A linha form_with(model: customer) define o modelo customer ao qual o formulário está vinculado. Portanto,
+os dados do formulário estão vinculados ao objeto @customer do controlador.
+
+Controller: No controlador (por exemplo, CustomersController), você deve ter a ação que manipula o envio do formulário. Normalmente,
+é algo como create ou update para criar ou atualizar um registro no banco de dados.
+Dentro desta ação, o @customer é construído a partir dos parâmetros enviados pelo formulário.
+
+def create
+  @customer = Customer.new(customer_params)
+  if @customer.save
+    # Redirecionar ou fazer algo após a criação bem-sucedida.
+  else
+    render 'new' # Por exemplo, se a validação falhar.
+  end
+end
+
+customer_params geralmente é um método privado que define quais parâmetros são permitidos para evitar injeção de dados não autorizada.
+
+View: O arquivo _form.html.erb é onde você define os campos do formulário. Usando form_with(model: customer),
+o Rails automaticamente gera os campos para você com base nas informações do modelo customer.
+
+A ideia é simplificar a criação de formulários, eliminando a necessidade de especificar explicitamente cada campo.
+O Rails aproveita a convenção sobre configuração para criar automaticamente o formulário com base nas definições do modelo.
+
+Embora a nova abordagem possa parecer menos explícita, ela geralmente reduz a quantidade de código que você precisa escrever,
+tornando o desenvolvimento mais rápido e reduzindo erros de sintaxe. A chave para entender o fluxo dos dados ainda reside no controlador, onde você manipula os dados do formulário.
+
+
 
 VIEW
 
@@ -38,7 +68,5 @@ CRIANDO / PERSISTINDO DADOS
 Name.create(name: "fulano", email: "xxxx@yyy.com", birthday: "xx/yy/zz", obs: "hauhasuhauuhs"
 
 x = Name.new irá instanciar objetos e depois ser possível preencher os dados: x.name = "fulano" // assim como x.email, x.birthday, etc
-
-
 
 
